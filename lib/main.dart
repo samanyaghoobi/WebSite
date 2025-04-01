@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:personal_web_site/ui/pages/home_page.dart';
+import 'package:personal_web_site/ui/home_page/home_page.dart';
 
 void main() {
   runApp(const MainApp());
@@ -13,7 +13,7 @@ class MainApp extends StatelessWidget {
     return const MaterialApp(
       home: Scaffold(
         body: Center(
-          child:HomePage(),
+          child: HomePage(),
         ),
       ),
     );
