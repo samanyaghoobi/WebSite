@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_social_button/flutter_social_button.dart';
 import 'package:personal_web_site/core/constant/sotial_link.dart';
 import 'package:personal_web_site/core/functions/url_luncher.dart';
+import 'package:personal_web_site/core/widget/myRotatikonAnimation.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -11,64 +12,90 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  final double _padding = 8.0;
+  final double _iconSize = 25.0;
+  final double _radius = 210.0;
+  final int _duration = 60;
   @override
   Widget build(BuildContext context) {
     return ListView(
       padding: EdgeInsets.zero,
       children: [
+        SizedBox(height: 20),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Stack(
               alignment: AlignmentDirectional.center,
               children: [
-                CircleAvatar(
-                  radius: 210,
-                  backgroundImage: AssetImage(
-                    'assets/images/blue_background.webp',
+                MyRotationAnimation(
+                  duration: Duration(seconds: _duration),
+                  child: CircleAvatar(
+                    radius: _radius,
+                    backgroundImage: AssetImage(
+                      'assets/images/blue_background.webp',
+                    ),
                   ),
                 ),
                 CircleAvatar(
-                  radius: 200,
+                  radius: _radius - 10,
                   backgroundImage: AssetImage('assets/images/profile_pic.webp'),
                 ),
               ],
             ),
           ],
         ),
-        // SocialButton(
-        //   onTap: () {},
-        //   padding: EdgeInsets.all(8),
-        //   buttonColor: ButtonColors.instagram,
-        //   label: 'Instagram',
-        //   icon: Icon(FontAwesomeIcons.instagram, color: Colors.white, size: 24),
-        // ),
+        SizedBox(height: 20),
 
-        FlutterSocialButton(
+        SocialButton(
           showLabel: true,
           onTap: () => launchURL(MySotaillink.myInstagramLink),
           mini: false,
-          buttonType: ButtonType.instagram,
-          title: 'Instagram',
+          label: 'Instagram',
+          icon: Icon(
+            FontAwesomeIcons.instagram,
+            color: Colors.white,
+            size: _iconSize,
+          ),
+          buttonColor: ButtonColors.instagram,
+          padding: EdgeInsets.all(_padding),
         ),
-        FlutterSocialButton(
+        SocialButton(
           onTap: () => launchURL(MySotaillink.myYoutubeLink),
           mini: false,
-          buttonType: ButtonType.youtube,
-          title: 'YouTube',
+          label: 'YouTube',
+          icon: Icon(
+            FontAwesomeIcons.youtube,
+            color: Colors.white,
+            size: _iconSize,
+          ),
+          buttonColor: ButtonColors.youtube,
+          padding: EdgeInsets.all(_padding),
         ),
-        FlutterSocialButton(
+        SocialButton(
           onTap: () => launchURL(MySotaillink.myLinkdinLink),
           mini: false,
-          buttonType: ButtonType.linkedin,
-          title: 'Linkdin',
+          label: 'Linkdin',
+          icon: Icon(
+            FontAwesomeIcons.linkedin,
+            color: Colors.white,
+            size: _iconSize,
+          ),
+          buttonColor: ButtonColors.linkedin,
+          padding: EdgeInsets.all(_padding),
         ),
 
-        FlutterSocialButton(
+        SocialButton(
           onTap: () => launchURL(MySotaillink.myGithubLink),
           mini: false,
-          buttonType: ButtonType.github,
-          title: 'GitHub',
+          label: 'GitHub',
+          icon: Icon(
+            FontAwesomeIcons.github,
+            color: Colors.white,
+            size: _iconSize,
+          ),
+          buttonColor: ButtonColors.github,
+          padding: EdgeInsets.all(_padding),
         ),
       ],
     );
