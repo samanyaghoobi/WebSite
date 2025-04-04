@@ -18,86 +18,90 @@ class _HomePageState extends State<HomePage> {
   final int _duration = 60;
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      padding: EdgeInsets.zero,
-      children: [
-        SizedBox(height: 20),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
+    return Scaffold(
+      body: Center(
+        child: ListView(
+          padding: EdgeInsets.zero,
           children: [
-            Stack(
-              alignment: AlignmentDirectional.center,
+            SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                MyRotationAnimation(
-                  duration: Duration(seconds: _duration),
-                  child: CircleAvatar(
-                    radius: _radius,
-                    backgroundImage: AssetImage(
-                      'assets/images/blue_background.webp',
+                Stack(
+                  alignment: AlignmentDirectional.center,
+                  children: [
+                    MyRotationAnimation(
+                      duration: Duration(seconds: _duration),
+                      child: CircleAvatar(
+                        radius: _radius,
+                        backgroundImage: AssetImage(
+                          'assets/images/blue_background.webp',
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-                CircleAvatar(
-                  radius: _radius - 10,
-                  backgroundImage: AssetImage('assets/images/profile_pic.webp'),
+                    CircleAvatar(
+                      radius: _radius - 10,
+                      backgroundImage: AssetImage('assets/images/profile_pic.webp'),
+                    ),
+                  ],
                 ),
               ],
             ),
+            SizedBox(height: 20),
+        
+            SocialButton(
+              showLabel: true,
+              onTap: () => launchURL(MySotaillink.myInstagramLink),
+              mini: false,
+              label: 'Instagram',
+              icon: Icon(
+                FontAwesomeIcons.instagram,
+                color: Colors.white,
+                size: _iconSize,
+              ),
+              buttonColor: ButtonColors.instagram,
+              padding: EdgeInsets.all(_padding),
+            ),
+            SocialButton(
+              onTap: () => launchURL(MySotaillink.myYoutubeLink),
+              mini: false,
+              label: 'YouTube',
+              icon: Icon(
+                FontAwesomeIcons.youtube,
+                color: Colors.white,
+                size: _iconSize,
+              ),
+              buttonColor: ButtonColors.youtube,
+              padding: EdgeInsets.all(_padding),
+            ),
+            SocialButton(
+              onTap: () => launchURL(MySotaillink.myLinkdinLink),
+              mini: false,
+              label: 'Linkdin',
+              icon: Icon(
+                FontAwesomeIcons.linkedin,
+                color: Colors.white,
+                size: _iconSize,
+              ),
+              buttonColor: ButtonColors.linkedin,
+              padding: EdgeInsets.all(_padding),
+            ),
+        
+            SocialButton(
+              onTap: () => launchURL(MySotaillink.myGithubLink),
+              mini: false,
+              label: 'GitHub',
+              icon: Icon(
+                FontAwesomeIcons.github,
+                color: Colors.white,
+                size: _iconSize,
+              ),
+              buttonColor: ButtonColors.github,
+              padding: EdgeInsets.all(_padding),
+            ),
           ],
         ),
-        SizedBox(height: 20),
-
-        SocialButton(
-          showLabel: true,
-          onTap: () => launchURL(MySotaillink.myInstagramLink),
-          mini: false,
-          label: 'Instagram',
-          icon: Icon(
-            FontAwesomeIcons.instagram,
-            color: Colors.white,
-            size: _iconSize,
-          ),
-          buttonColor: ButtonColors.instagram,
-          padding: EdgeInsets.all(_padding),
-        ),
-        SocialButton(
-          onTap: () => launchURL(MySotaillink.myYoutubeLink),
-          mini: false,
-          label: 'YouTube',
-          icon: Icon(
-            FontAwesomeIcons.youtube,
-            color: Colors.white,
-            size: _iconSize,
-          ),
-          buttonColor: ButtonColors.youtube,
-          padding: EdgeInsets.all(_padding),
-        ),
-        SocialButton(
-          onTap: () => launchURL(MySotaillink.myLinkdinLink),
-          mini: false,
-          label: 'Linkdin',
-          icon: Icon(
-            FontAwesomeIcons.linkedin,
-            color: Colors.white,
-            size: _iconSize,
-          ),
-          buttonColor: ButtonColors.linkedin,
-          padding: EdgeInsets.all(_padding),
-        ),
-
-        SocialButton(
-          onTap: () => launchURL(MySotaillink.myGithubLink),
-          mini: false,
-          label: 'GitHub',
-          icon: Icon(
-            FontAwesomeIcons.github,
-            color: Colors.white,
-            size: _iconSize,
-          ),
-          buttonColor: ButtonColors.github,
-          padding: EdgeInsets.all(_padding),
-        ),
-      ],
+      ),
     );
   }
 }

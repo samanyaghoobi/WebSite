@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:personal_web_site/ui/home_page/home_page.dart';
+import 'package:personal_web_site/core/router/router.dart';
+import 'package:personal_web_site/core/theme/my_theme.dart';
 
 void main() {
   runApp(const MainApp());
@@ -10,12 +11,10 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: HomePage(),
-        ),
-      ),
+    return  MaterialApp.router(
+      theme: MyTheme.darkTheme,
+      routerConfig: MyRouter.router,
+    
     );
   }
 }
